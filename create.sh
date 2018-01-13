@@ -10,8 +10,8 @@ docker build -t $NAME:$IMAGE_VERSION .
 
 # Create Deployment
 
-kubectl run $NAME --image=$NAME:$IMAGE_VERSION --port=8080 --image-pull-policy=IfNotPresent
+kubectl create -f ./api.deployment.yml
 
 # Create Service
 
-kubectl expose deployment $NAME
+kubectl create -f ./api.service.yml
