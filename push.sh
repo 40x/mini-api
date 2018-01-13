@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NAME="api"
+NAME="backend"
 
 IMAGE_VERSION="$(git rev-parse --short HEAD)"
 
@@ -8,20 +8,10 @@ IMAGE_VERSION="$(git rev-parse --short HEAD)"
 
 docker build -t $NAME:$IMAGE_VERSION .
 
-# (In case of Prod)
-
-# Push Image
-
-# Your Image Registry here
-
-# docker push xyz
-
-# (In case of Dev)
-
 # Create Deployment
 
-kubectl run $NAME --image=$NAME:$IMAGE_VERSION --port=8080
+kubectl run $NAME --image=$NAME:$IMAGE_VERSION --port=8080 --image-pull-policy=IfNotPresent
 
 # Create Service
 
-kubectl expose deployment $NAME --type=LoadBalancer
+kubectl expose deployment $NAME
