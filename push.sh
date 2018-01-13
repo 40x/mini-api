@@ -1,12 +1,22 @@
 #!/bin/bash
 
-NAME="test-mini"
+NAME="api"
 
 IMAGE_VERSION="$(git rev-parse --short HEAD)"
 
 # Build Image
 
 docker build -t $NAME:$IMAGE_VERSION .
+
+# (In case of Prod)
+
+# Push Image
+
+# Your Image Registry here
+
+# docker push xyz
+
+# (In case of Dev)
 
 # Create Deployment
 
