@@ -10,8 +10,8 @@ docker build -t $NAME:$IMAGE_VERSION .
 
 # Create Deployment
 
-kubectl create -f ./api.deployment.yml
+kubectl apply -f ./api.deployment.yml
 
 # Create Service
 
-kubectl create -f ./api.service.yml
+kubectl apply -f ./api.service.yml

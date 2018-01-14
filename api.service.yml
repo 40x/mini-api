@@ -1,15 +1,12 @@
-apiVersion: apps/v1beta1
 kind: Service
 apiVersion: v1
 metadata:
-  name: backend-service
+  name: backend
 spec:
   selector:
-    app: backend-service
+    app: backend
     tier: backend
   ports:
   - protocol: TCP
     port: 8080
     targetPort: http
-    nodePort: 30002
-  type: LoadBalancer
