@@ -1,0 +1,32 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  replicas: 7
+  template:
+    metadata:
+      labels:
+        app: backend
+        tier: backend
+        track: stable
+    spec:
+      containers:
+      - name: backend
+        image: backend:6b836ff
+        ports:
+        - name: http
+          containerPort: 8080
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: backend
+spec:
+  selector:
+    app: backend
+    tier: backend
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: http
