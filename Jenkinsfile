@@ -1,4 +1,9 @@
 node {
+
+    stage "Code checkout"
+
+        checkout scm
+
     stage "Build and push"
 
         sh "sh create.sh"
